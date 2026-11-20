@@ -1,0 +1,11 @@
+# Cấu hình chứa mật khẩu camera - không đưa lên git
+config.json
+config.tmp
+snapshots/
+recordings/
+__pycache__/
+*.pyc
+.venv/
+build/
+dist/
+*.spec
