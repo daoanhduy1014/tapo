@@ -54,6 +54,10 @@ class AppConfig:
     layout: str = "auto"        # auto | 1 | 4 | 9 | 16
     record_dir: str = ""
     snapshot_dir: str = ""
+    # Bản web: {"tên": {"hash": "...", "role": "admin" | "viewer"}}
+    web_users: dict = field(default_factory=dict)
+    web_secret: str = ""
+    web_port: int = 8080
 
     def snapshot_path(self) -> Path:
         return Path(self.snapshot_dir) if self.snapshot_dir else SNAPSHOT_DIR
@@ -77,6 +81,9 @@ def load_config(path: Path = CONFIG_PATH) -> AppConfig:
         layout=str(data.get("layout", "auto")),
         record_dir=data.get("record_dir", ""),
         snapshot_dir=data.get("snapshot_dir", ""),
+        web_users=dict(data.get("web_users", {})),
+        web_secret=str(data.get("web_secret", "")),
+        web_port=int(data.get("web_port", 8080)),
     )
 
 
@@ -86,6 +93,9 @@ def save_config(cfg: AppConfig, path: Path = CONFIG_PATH) -> None:
         "layout": cfg.layout,
         "record_dir": cfg.record_dir,
         "snapshot_dir": cfg.snapshot_dir,
+        "web_users": cfg.web_users,
+        "web_secret": cfg.web_secret,
+        "web_port": cfg.web_port,
     }
     tmp = path.with_suffix(".tmp")
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")

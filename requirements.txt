@@ -1,3 +1,5 @@
 opencv-python>=4.8
 Pillow>=10.0
 pytapo>=3.3
+Flask>=3.0
+waitress>=3.0
