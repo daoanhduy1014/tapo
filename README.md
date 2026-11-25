@@ -24,6 +24,10 @@ Phần mềm (bản **desktop** và bản **web**) xem trực tiếp camera **TP
 
 ## Bước 2 – Cài và chạy phần mềm
 
+> **Quan trọng về Python:** dùng **Python 3.12** (hoặc 3.11/3.13). **Không** dùng bản quá mới (3.15) vì thư viện camera chưa hỗ trợ.
+> Windows: tải bộ cài thường tại <https://www.python.org/ftp/python/3.12.10/python-3.12.10-amd64.exe>, tick **"Add python.exe to PATH"**.
+> Đừng dùng "Python install manager (MSIX)" và đừng dùng lối tắt Python của Microsoft Store.
+
 ### Windows
 1. Cài **Python 3.10+** tại <https://www.python.org/downloads/> – nhớ tick **“Add Python to PATH”**.
 2. Tải thư mục này về, nhấp đúp **`run_windows.bat`**.
